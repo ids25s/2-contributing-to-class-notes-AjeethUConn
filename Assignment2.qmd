@@ -69,7 +69,15 @@ a. **Why is it not a good idea to have spaces in file/folder names?**
 
 # Contributing to Class Notes
 
-## Forking and cloning the class Notes
+## Forking and cloning the class notes
+
+First, we'll fork the Class Notes repository. What this does is effectively make
+a copy of the original repository that we can make changes to as we please. We
+can edit, render, and push edits whenever we need to without having to worry
+about potentially conflicting changes with the original code. We will do this
+using the following terminal code:
+
+
 
 ## Setting up local editing
 
