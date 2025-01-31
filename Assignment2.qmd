@@ -66,3 +66,13 @@ a. **Why is it not a good idea to have spaces in file/folder names?**
    the command line, it can add work and be an unnecessary source of difficulty
    that may cause issues while working with a given file or folder, since the 
    space character is meant to separate commands.
+
+# Contributing to Class Notes
+
+## Forking and cloning the class Notes
+
+## Setting up local editing
+
+## Editing class notes
+
+## Pushing updates to class notes
