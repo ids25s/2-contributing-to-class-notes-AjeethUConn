@@ -1,140 +1,68 @@
 ---
 title: "Homework Assignment 2"
-author: "Jun Yan"
+author: "Ajeeth Vellore"
 toc: true
 number-sections: true
 highlight-style: pygments
 format: 
   html: 
-    code-fold: true
+    code-fold: false
     html-math-method: katex
   pdf: 
     geometry: 
       - top=30mm
       - left=20mm
+
 ##  docx: Never, unless to accommodate a collaborator
 ---
 
-# Approximating $\pi$
+# Working on Homework Problems
 
-Let $(X_i, Y_i)$, $i = 1, \ldots, n$, be a random sample drawn form
-the bivarate uniform distribution over the unit square. 
-The probability that this point falls into the
-first quardrant of the unit circle is $\pi / 4$. Based on this, we
-can approximate $\pi$ by
-\begin{equation*}
-  \hat\pi_n = \frac{4 \sum_{i=1}^n I(X_i^2 + Y_i^2 < 1)}{n},
-\end{equation*}
-for a large sample size $n$.
+a. **What are the differences betweeen binary and source files?**
 
-Let's write a function to do this, which take the sample size as
-the input.
-```{python}
-import random
+   Source files are the code used to generate binary. As such, they can be 
+   compiled directly into binary files like PDF, PNG, or EXE. Source files have 
+   human -readable code that can be interepreted and edited simply, while binary
+   is difficult (truthfully, practically impossible) for a human to read as 
+   code.
 
-def approximate_pi(num_points):
-    points_inside_circle = 0
+a. **Why do we not want to track binary files in a repo?**
 
-    for _ in range(num_points):
-        x, y = random.random(), random.random() # Random point in the unit square
-        distance = x**2 + y**2  # Distance from the origin
+   Since it is difficult for a human to read binary and understand where changes
+   have been made in that sort of machine-readable code, it is functionally
+   useless to track the history of such files in a repo. Plus, a binary change
+   could be the result of any sort of small difference that results from the
+   code-compiling process, be it the tools used to compile, the machine and
+   operating system used during compilation, et cetera.
+   
+a. **Why do I require pdf output via release?**
 
-        if distance <= 1:
-            points_inside_circle += 1
+   This method of submission allows for graders to easily leave comments on the
+   finalized version of the output from the code. This can be extrapolated to
+   the way in which GitHub might be used in a professional development setting,
+   where a potential user or customer can easily find finished products that
+   they themselves can use and run and gauge their satisfaction with the work.
 
-    # Approximate Pi
-    pi_approximation = 4 * points_inside_circle / num_points
-    return pi_approximation
-```
+a. **Why do I not want your files added via ‘upload’?**
 
-Let's try this out with 10000 points
-```{python}
-approximate_pi(10000)  # Using 10,000 points for approximation
-```
+   The main reason is that we need to learn how to use GitHub's command line 
+   tools. They are cleaner and faster than using manual upload, and will give
+   us students the experience of working like real software developers.
 
-Recall the central limit theorem, larger sample sizes lead
-to smaller approximation errors. 
-```{python}
-approximate_pi(160000)
-```
+a. **Why do I require line width under 80?**
 
-Here are some questions for you to think about:
+   Keeping the line width under 80 allows for increased readability. Since it is
+   an arbitrary standard, there no detriment to your code if you choose to go
+   over that limit. However, the limited character length allows for lines of
+   code to fit on all screens regardless of size and makes it easier for
+   developers to read each other's code.
 
-+ Do you remember how to calculate the standard errors of your
-approximation?
-+ Do you remember how to construct a confidence interval for $\pi$, 
-pretending you don't know its true value?
+a. **Why is it not a good idea to have spaces in file/folder names?**
 
-The above function works correctly, but it is quite inefficient because it uses loops. With package `NumPy`, we can make it much faster.
-```{python}
-import numpy as np
-
-def approximate_pi_vectorized(num_points):
-    # Generate random points in the unit square
-    x, y = np.random.random(num_points), np.random.random(num_points)
-
-    # Vectorized computation of distances from the origin
-    distances = x**2 + y**2
-
-    # Count points inside the unit circle
-    points_inside_circle = np.sum(distances <= 1)
-
-    # Approximate Pi
-    pi_approximation = 4 * points_inside_circle / num_points
-    return pi_approximation
-```
-
-Let's do a time comparison.
-```{python}
-import timeit
-
-setup_code = """
-import random
-import numpy as np
-
-def approximate_pi(num_points):
-    points_inside_circle = 0
-    for _ in range(num_points):
-        x, y = random.random(), random.random()
-        distance = x**2 + y**2
-        if distance <= 1:
-            points_inside_circle += 1
-    return 4 * points_inside_circle / num_points
-
-def approximate_pi_vectorized(num_points):
-    x, y = np.random.random(num_points), np.random.random(num_points)
-    distances = x**2 + y**2
-    points_inside_circle = np.sum(distances <= 1)
-    return 4 * points_inside_circle / num_points
-"""
-
-## poor style
-time_original = timeit.timeit("approximate_pi(10000)",     setup=setup_code,   number=100)
-
-## good style; watch the pdf output
-time_vectorized = timeit.timeit("approximate_pi_vectorized(10000)",
-                                setup=setup_code, number=100)
-
-time_original, time_vectorized
-```
-
-
-# Problme 2
-
-Here is your text desctiption.
-
-You can add some code chunks.
-
-Explain your code.  Here is a list:
-
-1. first
-1. second
-1. third
-
-# Making a release for grading
-
-To keep your repo clean, you don't want to track the generated
-pdf or html output. To facilitate grading, however, please 
-create a release and upload your pdf output so that my grader
-doesn't need to run your code to generate the same output on
-his/her computer.
+   It can be quite messy to work with files in the command line if they have
+   spaces. While you can still call files that have spaces in them by placing a
+   backslash (<span style="border: 1px solid #ccc; background-color: #f9f9f9;
+   padding: 2px 6px; border-radius: 4px; font-family: monospace;">\\</span>) in
+   the command line, it can add work and be an unnecessary source of difficulty
+   that may cause issues while working with a given file or folder, since the 
+   space character is meant to separate commands.
