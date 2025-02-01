@@ -1,0 +1,256 @@
+---
+title: "Homework Assignment 2"
+author: "Ajeeth Vellore"
+toc: true
+number-sections: true
+highlight-style: pygments
+format: 
+  html: 
+    code-fold: false
+    html-math-method: katex
+  pdf: 
+    geometry: 
+      - top=30mm
+      - left=20mm
+
+##  docx: Never, unless to accommodate a collaborator
+---
+
+# Working on Homework Problems
+
+a. **What are the differences betweeen binary and source files?**
+
+   Source files are the code used to generate binary. As such, they can be 
+   compiled directly into binary files like PDF, PNG, or EXE. Source files have 
+   human-readable code that can be interpreted and edited simply, while binary
+   is difficult (truthfully, practically impossible) for a human to read as 
+   code.
+
+a. **Why do we not want to track binary files in a repo?**
+
+   Since it is difficult for a human to read binary and understand where changes
+   have been made in that sort of machine-readable code, it is functionally
+   useless to track the history of such files in a repo. Plus, a binary change
+   could be the result of any sort of small difference that results from the
+   code-compiling process, be it the tools used to compile, the machine and
+   operating system used during compilation, et cetera.
+   
+a. **Why do I require pdf output via release?**
+
+   This method of submission allows for graders to easily leave comments on the
+   finalized version of the output from the code. This can be extrapolated to
+   the way in which GitHub might be used in a professional development setting,
+   where a potential user or customer can easily find finished products that
+   they themselves can use and run and gauge their satisfaction with the work.
+
+a. **Why do I not want your files added via ‘upload’?**
+
+   The main reason is that we need to learn how to use GitHub's command line 
+   tools. They are cleaner and faster than using manual upload, and will give
+   us students the experience of working like real software developers.
+
+a. **Why do I require line width under 80?**
+
+   Keeping the line width under 80 allows for increased readability. Since it is
+   an arbitrary standard, there is no detriment to your code if you choose to go
+   over that limit. However, the limited character length allows for lines of
+   code to fit on all screens regardless of size and makes it easier for
+   developers to read each other's code.
+
+a. **Why is it not a good idea to have spaces in file/folder names?**
+
+   It can be quite messy to work with files in the command line if they have
+   spaces. While you can still call files that have spaces in them by placing a
+   backslash (<span style="border: 1px solid #ccc; background-color: #f9f9f9;
+   padding: 2px 6px; border-radius: 4px; font-family: monospace;">\\</span>) in
+   the command line, it can add work and be an unnecessary source of difficulty
+   that may cause issues while working with a given file or folder, since the 
+   space character is meant to separate commands.
+
+# Contributing to Class Notes
+
+## Forking and cloning the class notes
+
+First, we'll fork the Class Notes repository. What this does is effectively make
+a copy of the original repository that we can make changes to as we please. We
+can edit, render, and push edits whenever we need to without having to worry
+about creating conflicts with the original code. We will do this by finding the
+following button on the original Class Notes repository:
+
+![](ForkingScreenshot.png)
+
+After hitting that dropdown button, you will see an option to "Create a new
+fork". Click this, name your new fork, and agree to the options that appear on
+the next screen. After this, you will arrive at a forked version of the original
+repository that is in your GitHub. Now, you can properly clone this repository
+to work on it locally. Ensure that you are working out of your desired directory
+on your machine, then enter this in the command line:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git clone git@github.com:AjeethUConn/fork_of_Class_Notes.git
+```
+:::
+
+Note that the link used is the one generated for my own account. You will have
+to replace such links and information with the ones meant for your account and
+your personal use. This will be a recurring theme throughout this guide. After
+this has been completed, you will have a cloned version of the repository, but
+we still need to do some extra work to make our workflow with this code as clean
+and safe as possible.
+
+## Setting up local editing
+
+So we have the repository now. That's great, but there's no telling whether our
+local machine will be able to compile all of the code in the document completely
+as expected. Plus, if we have to install more packages on our machine to make
+the code work, we may potentially mess with other coding projects we are running
+and accidentally break them by installing newer packages that they are not
+compatible with. So, we will set up a virtual environment to work with this
+repository. I am a MacOS user, so these instructions will apply to users like
+myself.
+
+Start by creating a virtual environment (or venv). To do so, ensure you are in
+the new repo and run this command in the terminal:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+python -m venv ids25s_hw2
+```
+:::
+
+This will make a venv that is associated specifically with this assignment.
+You will have to switch to this new environment, and perhaps even deactivate an
+Anaconda environment (the way I had to), so you will run these next two lines to
+put yourself exclusively in this new venv:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+source ids25s_hw2/bin/activate
+conda deactivate
+```
+:::
+
+If you aren't running Anaconda, just run the first line to switch environments.
+
+Next, we'll install all of the required files for our new repository using the
+given <span style="border: 1px solid #ccc; background-color: #f9f9f9; padding:
+2px 6px; border-radius: 4px; font-family: monospace;">requirements.txt</span>
+file given:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+pip install -r requirements.txt
+```
+:::
+
+This will read through the text file and install all of the packages required
+automatically. This may take a little bit of time, so be patient as your
+machine goes through this process. If you run into issues, there is a chance
+that the Python version you have is not supported by a given package. If this is
+the case, install a newer Python version, then repeat the steps of this guide
+from the creation of a new venv.
+
+To ensure you have completed installation of everything successfully, try
+rendering the <span style="border: 1px solid #ccc; background-color: #f9f9f9;
+padding: 2px 6px; border-radius: 4px; font-family: monospace;">index.qmd</span>
+file in your new repo:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+quarto preview index.qmd
+```
+:::
+
+Using <span style="border: 1px solid #ccc; background-color: #f9f9f9;
+padding: 2px 6px; border-radius: 4px; font-family: monospace;">preview</span>
+instead of <span style="border: 1px solid #ccc; background-color: #f9f9f9;
+padding: 2px 6px; border-radius: 4px; font-family: monospace;">render</span>
+allows for the use of a dynamically updating <span style="border: 1px solid
+#ccc; background-color: #f9f9f9; padding: 2px 6px; border-radius: 4px;
+font-family: monospace;">.html</span> that will compile as you make changes,
+which will be more convenient in further steps. If everything works, then great!
+We can move on to actually making edits to the class notes.
+
+## Editing wishlist
+
+To begin making edits, we first need to make a branch of our repository to work
+in:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git checkout -b "ajeeth_branch"
+```
+:::
+
+This sets a flag in our Git saying that we will be saving to a new custom branch
+instead of the "main" one we have in the remote repo. We do this so that, in
+case we make a mistake while editing, we can just make a new branch of our
+personal fork to edit in instead of needing to re-fork the whole repo. To
+confirm you have really made a new branch, you can run this:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git branch
+```
+:::
+
+It should return the two branches, "main" and "my_branch" (which in my case is
+"ajeeth_branch"), and have a star next to the one that is currently being edited
+in. If you are not already in your branch even though it's already been made,
+you can enter it by running:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git checkout "ajeeth_branch"
+```
+:::
+
+which will put you directly in the new branch. Now comes the easy part that
+we've been building to: make your wishlist! Edit the <span style="border: 1px
+solid #ccc; background-color: #f9f9f9; padding: 2px 6px; border-radius: 4px;
+font-family: monospace;">index.qmd</span> file as you would any other using
+VSCode (or another text editor of your choice). This is where <span
+style="border: 1px solid #ccc; background-color: #f9f9f9; padding: 2px 6px;
+border-radius: 4px; font-family: monospace;">quarto preview</span> can be very
+useful for rendering while editing, so you can test formatting as you go instead
+of needing to re-run a <span style="border: 1px solid #ccc; background-color:
+#f9f9f9; padding: 2px 6px; border-radius: 4px; font-family:
+monospace;">render</span> command every so often. Use it to make sure your
+additions look exactly as you expect.
+
+## Pushing updates to original class notes repo
+
+Finally, we can work on completing our work and re-contributing our work to the
+overall class notes. Once you are comfortable with the changes you have made, do
+the usual commands:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git add index.qmd
+git commit -m "Ajeeth added 4 items to Wishlist"
+```
+:::
+
+Replace my personal commit comment with one that better suits the work you did.
+After these steps, you will have to do something slightly different than normal
+to push your work to GitHub:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git push origin "ajeeth_branch"
+```
+:::
+
+What this does is push a branch that is new to the remote repo, your named
+branch, while linking it to the "main" branch it was evolved from. This allows
+for version control, as I mentioned previously, in the case that the named
+branch is a disaster.
+
+Now, we are onto our last steps. Go to your GitHub online repo and click the
+green "Compare and pull request" button. This initiates the dialogue for
+creating a pull request. Ensure that the title given to your pull request is
+adequately descriptive. Finally, hit the green "Create pull request" button near
+the bottom of the page. Hooray, you've completed the assignment, and if all was
+done correctly, Prof. Yan will accept your request and you will be added as a
+contributor to the class notes! Congratulations!
