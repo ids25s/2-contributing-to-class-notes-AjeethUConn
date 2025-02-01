@@ -74,16 +74,67 @@ a. **Why is it not a good idea to have spaces in file/folder names?**
 First, we'll fork the Class Notes repository. What this does is effectively make
 a copy of the original repository that we can make changes to as we please. We
 can edit, render, and push edits whenever we need to without having to worry
-about potentially conflicting changes with the original code. We will do this
-using by finding the following button on the original Class Notes repository:
+about creating conflicts with the original code. We will do this by finding the
+following button on the original Class Notes repository:
 
 ![](ForkingScreenshot.png)
 
-- clone using git clone ssh_tag
+After hitting that dropdown button, you will see an option to "Create a new
+fork". Click this, name your new fork, and agree to the options that appear on
+the next screen. After this, you will arrive at a forked version of the original
+repository that is in your GitHub. Now, you can properly clone this repository
+to work on it locally. Ensure that you are working out of your desired directory
+on your machine, then enter this in the command line:
 
-terminal code block
+::: { .callout-note title="Terminal" }
+```{bash}
+git clone git@github.com:AjeethUConn/fork_of_Class_Notes.git
+```
+:::
+
+Note that the link used is the one generated for my own account. You will have
+to replace such links with the ones meant for your account. This will be a
+reccuring theme throughout this guide. After this has been completed, you will
+have a cloned version of the repository, but we still need to do some extra work
+to make our workflow with this code as clean and safe as possible.
 
 ## Setting up local editing
+
+So we have the repository now. That's great, but there's no telling whether our
+local machine will be able to compile all of the code in the document completely
+as expected. Plus, if we have to install more packages on our machine to make
+the code work, we may potentially mess with other coding projects we are running
+and accidentally break them by installing newer packages that they are not
+compatible with. So, we will set up a virtual environment to work with this
+repository. I am a MacOS user, so these instructions will apply to users like
+myself.
+
+Start by creating a virtual environment (or venv). To do so, run this command in your
+terminal:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+python -m venv ids25s_hw2
+```
+:::
+
+This will make a venv that is associated specifically with this assignment.
+You will have to switch to this new environment, and perhaps even deactivate an
+Anaconda environment (the way I had to), so you will run these next two lines to
+put yourself exclusively in this new venv:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+source ids25s_hw2/bin/activate
+conda deactivate
+```
+:::
+
+If you aren't running Anaconda, just run the first line to switch environments.
+
+Next, we'll install all of the required files for our new repository using the
+requirements.txt:
+
 
 - ensure pyenv is installed so that the necessary python version can be installed (3.12)
 - set up venv to avoid error occuring when trying to initially render file
