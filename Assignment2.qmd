@@ -172,7 +172,7 @@ font-family: monospace;">.html</span> that will compile as you make changes,
 which will be more convenient in further steps. If everything works, then great!
 We can move on to actually making edits to the class notes.
 
-## Editing class notes
+## Editing wishlist
 
 To begin making edits, we first need to make a branch of our repository to work
 in:
@@ -219,7 +219,7 @@ of needing to re-run a <span style="border: 1px solid #ccc; background-color:
 monospace;">render</span> command every so often. Use it to make sure your
 additions look exactly as you expect.
 
-## Pushing updates to class notes
+## Pushing updates to original class notes repo
 
 Finally, we can work on completing our work and re-contributing our work to the
 overall class notes. Once you are comfortable with the changes you have made, do
