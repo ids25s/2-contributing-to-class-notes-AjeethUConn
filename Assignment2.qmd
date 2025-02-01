@@ -22,7 +22,7 @@ a. **What are the differences betweeen binary and source files?**
 
    Source files are the code used to generate binary. As such, they can be 
    compiled directly into binary files like PDF, PNG, or EXE. Source files have 
-   human -readable code that can be interpreted and edited simply, while binary
+   human-readable code that can be interpreted and edited simply, while binary
    is difficult (truthfully, practically impossible) for a human to read as 
    code.
 
