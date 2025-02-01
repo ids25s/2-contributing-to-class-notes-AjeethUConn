@@ -109,8 +109,8 @@ compatible with. So, we will set up a virtual environment to work with this
 repository. I am a MacOS user, so these instructions will apply to users like
 myself.
 
-Start by creating a virtual environment (or venv). To do so, run this command in your
-terminal:
+Start by creating a virtual environment (or venv). To do so, ensure you are in
+the new repo and run this command in the terminal:
 
 ::: { .callout-note title="Terminal" }
 ```{bash}
@@ -133,13 +133,43 @@ conda deactivate
 If you aren't running Anaconda, just run the first line to switch environments.
 
 Next, we'll install all of the required files for our new repository using the
-requirements.txt:
+given <span style="border: 1px solid #ccc; background-color: #f9f9f9; padding:
+2px 6px; border-radius: 4px; font-family: monospace;">requirements.txt</span>
+file given:
 
+::: { .callout-note title="Terminal" }
+```{bash}
+pip install -r requirements.txt
+```
+:::
 
-- ensure pyenv is installed so that the necessary python version can be installed (3.12)
-- set up venv to avoid error occuring when trying to initially render file
-- install required files
-- try quarto preview file to get locally hosted html that automatically updates with changes
+This will read through the text file and install all of the packages required
+automatically. This make time a little bit of time, so be patient as your
+machine goes through this process. If you run into issues, there is a chance
+that the Python version you have is not supported by a given package. If this is
+the case, install a newer Python version, then repeat the steps of this guide
+from the creation a new venv.
+
+To ensure you have completed installation of everything successfully, try
+rendering the <span style="border: 1px solid #ccc; background-color: #f9f9f9;
+padding: 2px 6px; border-radius: 4px; font-family: monospace;">index.qmd</span>
+file in your new repo:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+quarto preview index.qmd
+```
+:::
+
+Using <span style="border: 1px solid #ccc; background-color: #f9f9f9;
+padding: 2px 6px; border-radius: 4px; font-family: monospace;">preview</span>
+instead of <span style="border: 1px solid #ccc; background-color: #f9f9f9;
+padding: 2px 6px; border-radius: 4px; font-family: monospace;">render</span>
+allows for the use of a dynamically updating <span style="border: 1px solid
+#ccc; background-color: #f9f9f9; padding: 2px 6px; border-radius: 4px;
+font-family: monospace;">.html</span> that will compile as you make changes,
+which will be more convenient in further steps. If everything works, then great!
+We can move on to actually making edits to the class notes.
 
 ## Editing class notes
 
