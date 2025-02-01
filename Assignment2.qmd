@@ -75,12 +75,33 @@ First, we'll fork the Class Notes repository. What this does is effectively make
 a copy of the original repository that we can make changes to as we please. We
 can edit, render, and push edits whenever we need to without having to worry
 about potentially conflicting changes with the original code. We will do this
-using the following terminal code:
+using by finding the following button on the original Class Notes repository:
 
+![](ForkingScreenshot.png)
 
+- clone using git clone ssh_tag
+
+terminal code block
 
 ## Setting up local editing
 
+- ensure pyenv is installed so that the necessary python version can be installed (3.12)
+- set up venv to avoid error occuring when trying to initially render file
+- install required files
+- try quarto preview file to get locally hosted html that automatically updates with changes
+
 ## Editing class notes
 
+- make a branch using git checkout -b "my_branch"
+- confirm you are in the right branch by running git branch, the one your are working in should appear in green with a star next to it
+- edit as usual
+- use quarto render to get a live feed of your updates as you save
+
 ## Pushing updates to class notes
+
+- once comfortable with update, hit git add index.qmd
+- then do git commit -m "message"
+- then do git push origin "my_branch". Only doing git push will not work because your branch does not already exist in the remote repository,
+  and so doing it this way tells the git to make this new branch in the online repository if it doesn't already exist
+- Then, hit the green Compare and pull request button on github to propose merge with original repository
+- Finally, hit the green Create pull request button at the bottom of the page
