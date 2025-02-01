@@ -221,6 +221,32 @@ additions look exactly as you expect.
 
 ## Pushing updates to class notes
 
+Finally, we can work on completing our work and re-contributing our work to the
+overall class notes. Once you are comfortable with the changes you have made, do
+the usual commands:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git add index.qmd
+git commit -m "Ajeeth added 4 items to Wishlist"
+```
+:::
+
+Replace my personal commit comment with one that better suits the work you did.
+After these steps, you will have to do something slightly differnt than normal
+to push your work to GitHub:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git push origin "ajeeth_branch"
+```
+:::
+
+What this does is push a branch that is new to the remote repo, your named
+branch, while linking it to the "main" branch it was evolved from. This allows
+for version control, as I mentioned previously, in the case that the named
+branch is a disaster.
+
 - once comfortable with update, hit git add index.qmd
 - then do git commit -m "message"
 - then do git push origin "my_branch". Only doing git push will not work because your branch does not already exist in the remote repository,
