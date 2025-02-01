@@ -247,6 +247,14 @@ branch, while linking it to the "main" branch it was evolved from. This allows
 for version control, as I mentioned previously, in the case that the named
 branch is a disaster.
 
+Now, we are onto our last steps. Go to your GitHub online repo and click the
+green "Compare and pull request" button. This initiates the dialogue for
+creating a pull request. Ensure that the title given to your pull request is
+adequately descriptive. Finally, hit the green "Create pull request" button near
+the bottom of the page. Hooray, you've completed the assignment, and if all was
+done correctly, Prof. Yan will accept your request and you will be added as a
+contributor to the class notes! Congratulations!
+
 - once comfortable with update, hit git add index.qmd
 - then do git commit -m "message"
 - then do git push origin "my_branch". Only doing git push will not work because your branch does not already exist in the remote repository,
