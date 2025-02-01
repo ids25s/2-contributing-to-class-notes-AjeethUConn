@@ -22,7 +22,7 @@ a. **What are the differences betweeen binary and source files?**
 
    Source files are the code used to generate binary. As such, they can be 
    compiled directly into binary files like PDF, PNG, or EXE. Source files have 
-   human -readable code that can be interepreted and edited simply, while binary
+   human -readable code that can be interpreted and edited simply, while binary
    is difficult (truthfully, practically impossible) for a human to read as 
    code.
 
@@ -52,7 +52,7 @@ a. **Why do I not want your files added via ‘upload’?**
 a. **Why do I require line width under 80?**
 
    Keeping the line width under 80 allows for increased readability. Since it is
-   an arbitrary standard, there no detriment to your code if you choose to go
+   an arbitrary standard, there is no detriment to your code if you choose to go
    over that limit. However, the limited character length allows for lines of
    code to fit on all screens regardless of size and makes it easier for
    developers to read each other's code.
@@ -94,7 +94,7 @@ git clone git@github.com:AjeethUConn/fork_of_Class_Notes.git
 
 Note that the link used is the one generated for my own account. You will have
 to replace such links and information with the ones meant for your account and
-your personal use. This will be a reccuring theme throughout this guide. After
+your personal use. This will be a recurring theme throughout this guide. After
 this has been completed, you will have a cloned version of the repository, but
 we still need to do some extra work to make our workflow with this code as clean
 and safe as possible.
@@ -145,11 +145,11 @@ pip install -r requirements.txt
 :::
 
 This will read through the text file and install all of the packages required
-automatically. This make time a little bit of time, so be patient as your
+automatically. This may take a little bit of time, so be patient as your
 machine goes through this process. If you run into issues, there is a chance
 that the Python version you have is not supported by a given package. If this is
 the case, install a newer Python version, then repeat the steps of this guide
-from the creation a new venv.
+from the creation of a new venv.
 
 To ensure you have completed installation of everything successfully, try
 rendering the <span style="border: 1px solid #ccc; background-color: #f9f9f9;
@@ -233,7 +233,7 @@ git commit -m "Ajeeth added 4 items to Wishlist"
 :::
 
 Replace my personal commit comment with one that better suits the work you did.
-After these steps, you will have to do something slightly differnt than normal
+After these steps, you will have to do something slightly different than normal
 to push your work to GitHub:
 
 ::: { .callout-note title="Terminal" }
