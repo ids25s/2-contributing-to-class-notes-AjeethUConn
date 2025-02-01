@@ -219,11 +219,6 @@ of needing to re-run a <span style="border: 1px solid #ccc; background-color:
 monospace;">render</span> command every so often. Use it to make sure your
 additions look exactly as you expect.
 
-- make a branch using git checkout -b "my_branch"
-- confirm you are in the right branch by running git branch, the one your are working in should appear in green with a star next to it
-- edit as usual
-- use quarto render to get a live feed of your updates as you save
-
 ## Pushing updates to class notes
 
 - once comfortable with update, hit git add index.qmd
