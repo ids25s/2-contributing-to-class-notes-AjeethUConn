@@ -93,10 +93,11 @@ git clone git@github.com:AjeethUConn/fork_of_Class_Notes.git
 :::
 
 Note that the link used is the one generated for my own account. You will have
-to replace such links with the ones meant for your account. This will be a
-reccuring theme throughout this guide. After this has been completed, you will
-have a cloned version of the repository, but we still need to do some extra work
-to make our workflow with this code as clean and safe as possible.
+to replace such links and information with the ones meant for your account and
+your personal use. This will be a reccuring theme throughout this guide. After
+this has been completed, you will have a cloned version of the repository, but
+we still need to do some extra work to make our workflow with this code as clean
+and safe as possible.
 
 ## Setting up local editing
 
@@ -172,6 +173,51 @@ which will be more convenient in further steps. If everything works, then great!
 We can move on to actually making edits to the class notes.
 
 ## Editing class notes
+
+To begin making edits, we first need to make a branch of our repository to work
+in:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git checkout -b "ajeeth_branch"
+```
+:::
+
+This sets a flag in our Git saying that we will be saving to a new custom branch
+instead of the "main" one we have in the remote repo. We do this so that, in
+case we make a mistake while editing, we can just make a new branch of our
+personal fork to edit in instead of needing to re-fork the whole repo. To
+confirm you have really made a new branch, you can run this:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git branch
+```
+:::
+
+It should return the two branches, "main" and "my_branch" (which in my case is
+"ajeeth_branch"), and have a star next to the one that is currently being edited
+in. If you are not already in your branch even though it's already been made,
+you can enter it by running:
+
+::: { .callout-note title="Terminal" }
+```{bash}
+git checkout "ajeeth_branch"
+```
+:::
+
+which will put you directly in the new branch. Now comes the easy part that
+we've been building to: make your wishlist! Edit the <span style="border: 1px
+solid #ccc; background-color: #f9f9f9; padding: 2px 6px; border-radius: 4px;
+font-family: monospace;">index.qmd</span> file as you would any other using
+VSCode (or another text editor of your choice). This is where <span
+style="border: 1px solid #ccc; background-color: #f9f9f9; padding: 2px 6px;
+border-radius: 4px; font-family: monospace;">quarto preview</span> can be very
+useful for rendering while editing, so you can test formatting as you go instead
+of needing to re-run a <span style="border: 1px solid #ccc; background-color:
+#f9f9f9; padding: 2px 6px; border-radius: 4px; font-family:
+monospace;">render</span> command every so often. Use it to make sure your
+additions look exactly as you expect.
 
 - make a branch using git checkout -b "my_branch"
 - confirm you are in the right branch by running git branch, the one your are working in should appear in green with a star next to it
